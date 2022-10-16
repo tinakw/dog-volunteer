@@ -5,7 +5,8 @@ require('dotenv').config()
 SALT_ROUNDS = Number(process.env.SALT_ROUNDS)
 
 const userSchema = new Schema({
-  name: { type: String, required: true},
+  first_name: { type: String, required: true},
+  last_name: { type: String, required: true},
   email: {
     type: String,
     unique: true,

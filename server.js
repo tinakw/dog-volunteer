@@ -8,6 +8,9 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
+const seed = require('./seed');
+
+seed();
 
 // ----------
 // Defining the port that the app runs on
