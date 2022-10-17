@@ -1,5 +1,6 @@
 import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import { getEvents } from '../utilities/users-service'
 export default function Home(props) {
     const [message, setMessage] = useState('')
@@ -29,7 +30,7 @@ export default function Home(props) {
                 <div>
                     <h2>{event.title}</h2>
                     <p>{event.description}</p>
-                    <a>Chat</a>
+                    <Link to={"/chat/" + event._id}>Chat</Link>
                 </div>
             ))}
             <textarea onChange={e => setMessage(e.target.value)}></textarea>

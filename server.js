@@ -89,6 +89,11 @@ io.on('connection', (socket) => {
     // Send that message to every user who is connected
     socket.broadcast.emit('receive', {message})
   })
+
+  socket.on('join event chat', ({eventId}) => {
+    // Grab every message in that chat
+    console.log('event that the user wants to join',eventId )
+  })
 })
 
 // ----------

@@ -41,7 +41,7 @@ function App() {
             <NavBar user={user} />
             <Routes>
               <Route path="/" element={<Home socket={socket}/>} />
-              <Route path="/chat" element={<Chat socket={socket}/>} />
+              <Route path="/chat/:eventId" element={<Chat socket={socket}/>} />
              
             </Routes>
           </>
