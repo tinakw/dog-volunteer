@@ -3,12 +3,24 @@
 // ----------
 
 const express = require('express');
+const app = express()
 const path = require('path');
+const http = require('http');
+const server = http.createServer(app)
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
 const seed = require('./seed');
+const jwt = require('jsonwebtoken')
+
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
+
 
 seed();
 
@@ -22,7 +34,6 @@ const port = process.env.PORT || 3001
 // Creating the application using express so that it can actually process requests
 // ----------
 
-const app = express();
 
 // ----------
 // BEGINNING OF MIDDLEWARE
@@ -45,6 +56,7 @@ app.use(express.static(path.join(__dirname, 'build'))); // this points the react
 // ----------
 
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/events', require('./routes/api/events'));
 
 // This app.use is a little different because it takes *two* arguments, the first of which is a string. Since it is a string, it knows that it needs to send any request that starts with that string to the file that is put in the second argument slot.
 
@@ -62,9 +74,26 @@ app.get('/*', (req, res) => {
 
 // This is your *default* route. If the route being received does not match any other route that exists on the server, it sends it back information about the frontend React App and renders it to the page. This is why it is put at the very end, because if it does not match anything else, it knows to do this.
 
+io.on('connection', (socket) => {
+  console.log('someone connected');
+
+  // Once a user emites a message, the server has to receive the message
+  socket.on('message', (message) => {
+    console.log('what is the message the user is sending?', message);
+    const token = message.token;
+    jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
+      console.log('decoded user', decoded);
+    });
+    // Make sure to store that message in the database
+
+    // Send that message to every user who is connected
+    socket.broadcast.emit('receive', {message})
+  })
+})
+
 // ----------
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Listening on port ${port}`)
 });
 

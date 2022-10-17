@@ -44,3 +44,19 @@ export async function signUp(userData) {
 
   return getUser();
 }
+
+export async function login(userData) {
+  const response = await usersAPI.login(userData);
+
+  localStorage.setItem('token', response.jwt_token)
+
+  return getUser();
+}
+
+export async function getEvents() {
+  const response = await usersAPI.getEvents();
+
+
+
+  return response;
+}
