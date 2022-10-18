@@ -3,13 +3,9 @@ import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import { getEvents } from '../utilities/users-service'
 export default function Home(props) {
-    const [message, setMessage] = useState('')
+   
     const [events, setEvents] = useState([])
-    const submitMessage = () => {
-        // Send message to server
-        props.socket.emit('message', { message, token: localStorage.getItem('token') })
-    }
-
+  
 
 
 
@@ -33,8 +29,7 @@ export default function Home(props) {
                     <Link to={"/chat/" + event._id}>Chat</Link>
                 </div>
             ))}
-            <textarea onChange={e => setMessage(e.target.value)}></textarea>
-            <button onClick={submitMessage}>Send</button>
+            
         </div>
 
     )

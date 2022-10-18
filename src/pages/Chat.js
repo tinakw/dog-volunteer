@@ -5,11 +5,15 @@ import { getEvents } from '../utilities/users-service'
 export default function Chat(props) {
     const params = useParams();
     const [message, setMessage] = useState('')
+
+    const [chatMessages, setChatMessages] = useState([]);
+
     const [events, setEvents] = useState([])
     const submitMessage = () => {
         // Send message to server
-        props.socket.emit('message', { message, token: localStorage.getItem('token') })
+        props.socket.emit('message', { message, token: localStorage.getItem('token'), eventId: params.eventId })
     }
+
 
     console.log('what are my params', params)
 
@@ -23,6 +27,11 @@ export default function Chat(props) {
 
         props.socket.emit('join event chat', {eventId: params.eventId})
 
+        props.socket.on('send messages', (messages) => {
+            //console.log('messages received from the backend for this chat', messages)
+            setChatMessages(messages);
+        })
+
         // const get = async () => {
         //     const events = await getEvents();
         //     // Each event in our databse is an object
@@ -35,6 +44,10 @@ export default function Chat(props) {
     return (
         <div>
             <h1>Chat Page</h1>
+            {chatMessages.map(message => (
+                <div><p>{message.body}</p></div>
+            ))
+            }
            
             <textarea onChange={e => setMessage(e.target.value)}></textarea>
             <button onClick={submitMessage}>Send</button>

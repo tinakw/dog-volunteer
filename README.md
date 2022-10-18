@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+User vists our app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+They are prompted to login or signup 
 
-## Available Scripts
+Once they are logged in or register, what do they see?
 
-In the project directory, you can run:
+A user sees a list of events on their homepage
 
-### `npm start`
+A user clicks on one of these events and is shown a messaging page for that particular event 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We want to establish a web socket connection with the server JUST for this particular event chat
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+User1 sends a message to Event Id 1
+Server takes that message, stores it in our database, 
+Server needs to send that message to everyone in that chat
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Messaging page consists of message chat and maybe list of users and RSVP button
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Use websockets to create a real time connection in order to be able to send and receive messages instantaenously 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A user enters one of the event chat rooms 
+A user types and sends a message to the group chat
 
-### `npm run eject`
+Every user in that chat will see that message instaneously through the use of this real connection
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+USer1 and User2 in a group chat
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+User1 has a web socket conection with server
+User2 also has a web socket connection with server
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+User1 sends a message to the server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Server has to first store that message in the database
+Server sends that message to everyone who is connected to it
 
-### Code Splitting
+Server sends that message to User2
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+USer2 ssees that message in their chat

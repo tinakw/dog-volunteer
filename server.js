@@ -13,6 +13,8 @@ require('dotenv').config();
 require('./config/database');
 const seed = require('./seed');
 const jwt = require('jsonwebtoken')
+const Message = require('./models/Message');
+const mongoose = require('mongoose');
 
 const io = require("socket.io")(server, {
   cors: {
@@ -83,6 +85,11 @@ io.on('connection', (socket) => {
     const token = message.token;
     jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
       console.log('decoded user', decoded);
+
+      // Store that message in the database
+      // Message
+
+
     });
     // Make sure to store that message in the database
 
@@ -90,9 +97,14 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('receive', {message})
   })
 
-  socket.on('join event chat', ({eventId}) => {
+  socket.on('join event chat', async ({eventId}) => {
     // Grab every message in that chat
+    const messages = await Message.find({event: mongoose.Types.ObjectId(eventId)});
+    console.log('all messages for this event: ', eventId, messages)
+    socket.join(eventId)
     console.log('event that the user wants to join',eventId )
+    io.to(eventId).emit('send messages', messages);
+
   })
 })
 
