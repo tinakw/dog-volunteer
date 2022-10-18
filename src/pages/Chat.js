@@ -8,15 +8,13 @@ export default function Chat(props) {
 
     const [chatMessages, setChatMessages] = useState([]);
 
-    const [events, setEvents] = useState([])
     const submitMessage = () => {
         // Send message to server
-        props.socket.emit('message', { message, token: localStorage.getItem('token'), eventId: params.eventId })
+        props.socket.emit('message', { body: message, token: localStorage.getItem('token'), eventId: params.eventId })
     }
 
 
-    console.log('what are my params', params)
-
+  
 
     useEffect(() => {
 
@@ -28,17 +26,15 @@ export default function Chat(props) {
         props.socket.emit('join event chat', {eventId: params.eventId})
 
         props.socket.on('send messages', (messages) => {
-            //console.log('messages received from the backend for this chat', messages)
+            console.log('messages received from the backend for this chat', messages)
             setChatMessages(messages);
         })
 
-        // const get = async () => {
-        //     const events = await getEvents();
-        //     // Each event in our databse is an object
-        //     console.log('events', events)
-        //     setEvents(events)
-        // }
-        // get();
+        props.socket.on('new message', (newMessage) => {
+            console.log('someone sent a new message', newMessage)
+            setChatMessages((prevState) => [...prevState, newMessage])
+        })
+    
     }, [])
 
     return (

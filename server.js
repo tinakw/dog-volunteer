@@ -80,21 +80,25 @@ io.on('connection', (socket) => {
   console.log('someone connected');
 
   // Once a user emites a message, the server has to receive the message
-  socket.on('message', (message) => {
-    console.log('what is the message the user is sending?', message);
+  socket.on('message', async (message) => {
+ 
     const token = message.token;
-    jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
-      console.log('decoded user', decoded);
+    jwt.verify(token, process.env.JWT_SECRET, async function(err, decoded) {
+      
 
       // Store that message in the database
-      // Message
+      const newMessage = await Message.create({
+        user: mongoose.Types.ObjectId(decoded.user._id),
+        body: message.body,
+        event: mongoose.Types.ObjectId(message.eventId)
+      })
+      // Server will send that message ONLY to everyone in that event chat
+      io.to(message.eventId).emit('new message', newMessage);
+
 
 
     });
-    // Make sure to store that message in the database
-
-    // Send that message to every user who is connected
-    socket.broadcast.emit('receive', {message})
+   
   })
 
   socket.on('join event chat', async ({eventId}) => {
