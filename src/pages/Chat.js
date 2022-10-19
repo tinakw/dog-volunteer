@@ -14,7 +14,7 @@ export default function Chat(props) {
     }
 
 
-  
+
 
     useEffect(() => {
 
@@ -23,7 +23,7 @@ export default function Chat(props) {
         // We also want to establish a connection to the server 
         // so that our messages only get sent to the right event
 
-        props.socket.emit('join event chat', {eventId: params.eventId})
+        props.socket.emit('join event chat', { eventId: params.eventId })
 
         props.socket.on('send messages', (messages) => {
             console.log('messages received from the backend for this chat', messages)
@@ -34,17 +34,20 @@ export default function Chat(props) {
             console.log('someone sent a new message', newMessage)
             setChatMessages((prevState) => [...prevState, newMessage])
         })
-    
+
     }, [])
 
     return (
         <div>
             <h1>Chat Page</h1>
             {chatMessages.map(message => (
-                <div><p>{message.body}</p></div>
+                <div>
+                    <p>{message.body}</p>
+                    <p>{message.user.first_name}</p>
+                </div>
             ))
             }
-           
+
             <textarea onChange={e => setMessage(e.target.value)}></textarea>
             <button onClick={submitMessage}>Send</button>
         </div>

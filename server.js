@@ -24,7 +24,7 @@ const io = require("socket.io")(server, {
 });
 
 
-seed();
+// seed();
 
 // ----------
 // Defining the port that the app runs on
@@ -103,7 +103,7 @@ io.on('connection', (socket) => {
 
   socket.on('join event chat', async ({eventId}) => {
     // Grab every message in that chat
-    const messages = await Message.find({event: mongoose.Types.ObjectId(eventId)});
+    const messages = await Message.find({event: mongoose.Types.ObjectId(eventId)}).populate({ path: 'user', select: 'first_name last_name' });
     console.log('all messages for this event: ', eventId, messages)
     socket.join(eventId)
     console.log('event that the user wants to join',eventId )

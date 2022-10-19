@@ -8,7 +8,7 @@ import OrderHistory from './pages/OrderHistory';
 import NavBar from './components/NavBar';
 import Test from './pages/Test'
 import { Routes, Route } from 'react-router-dom'
-import { getUser} from './utilities/users-service';
+import { getUser } from './utilities/users-service';
 import io from 'socket.io-client';
 import SignUpForm from './components/SignUpForm';
 import LoginForm from './components/LoginForm';
@@ -40,22 +40,22 @@ function App() {
           <>
             <NavBar user={user} />
             <Routes>
-              <Route path="/" element={<Home socket={socket}/>} />
-              <Route path="/chat/:eventId" element={<Chat socket={socket}/>} />
-             
+              <Route path="/" element={<Home socket={socket} />} />
+              <Route path="/chat/:eventId" element={<Chat socket={socket} />} />
+
             </Routes>
           </>
           :
           <>
-           <Routes>
+            <Routes>
               <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
               <Route path="/login" element={<LoginForm setUser={setUser} />} />
-             
+              <Route path="*" element={<LoginForm setUser={setUser} />} />
             </Routes>
-                  
-                  
+
+
           </>
- 
+
       }
     </div>
   );

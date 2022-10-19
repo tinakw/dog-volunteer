@@ -4,8 +4,12 @@ export default function NavBar (props) {
   return (
     <nav>
       <h3>{props?.user?.name}</h3>
-      <Link to="/orders">Order History</Link>&nbsp;
-      <Link to="/orders/new">New Order</Link>
+      
+      <Link to="/">Home</Link>
+      <button onClick={()=> {
+        localStorage.removeItem('token');
+        props.setUser(null);
+      }}>Log Out</button>
     </nav>
   )
 }
