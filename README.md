@@ -24,13 +24,13 @@ Use websockets to create a real time connection in order to be able to send and 
 A user enters one of the event chat rooms 
 A user types and sends a message to the group chat
 
-Every user in that chat will see that message instaneously through the use of this real connection
+Every user in that chat will see that message instantly through the use of this real connection
 
 
 USer1 and User2 in a group chat
 
 
-User1 has a web socket conection with server
+User1 has a web socket connection with server
 User2 also has a web socket connection with server
 
 
@@ -41,4 +41,17 @@ Server sends that message to everyone who is connected to it
 
 Server sends that message to User2
 
-USer2 ssees that message in their chat
+USer2 sees that message in their chat
+
+
+
+Left Todo
+[x] Style the signup page
+[x] Style the login page
+[x] Create cards for each event in the home page
+[x] Navigation bar can have links back to Home, Also show the user's name, and a logout button
+[] Come up with a design for the chat page
+[] Show who sent the message and what time they sent the message
+[] Make sure that the chat log or chat history doesn't get too long (make it scrollable)
+[] Deploy
+[x] Come up with some mock events (title, description, date, image)

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { login } from '../utilities/users-service'
+import './LoginForm.css'
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginForm(props) {
-
+    const navigate = useNavigate();
     const [errorState, setErrorState] = useState('');
 
     const [formData, setFormData] = useState({
@@ -23,7 +25,7 @@ export default function LoginForm(props) {
             const user = await login(payload);
             console.log('user logged in', user)
             props.setUser(user);
-
+            navigate('/');
         } catch {
             setErrorState('Sign Up Failed - Try Again');
         }
@@ -34,9 +36,16 @@ export default function LoginForm(props) {
     }
 
     return (
-        <>
+        <section className="signUpFormContainer">
             <div className="form-container">
-                <form autoComplete="off" onSubmit={handleSubmit}>
+                <div className="form-header">
+                    <img src="ShirlDogsLogoMagP2.jpg" />
+                    <h2>Shirlington Dogs II</h2>
+                </div>
+                <form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>
+                    <h2>Welcome Back</h2>
+                    <h3>Sign in to access your account</h3>
+                    <div className="input_box">
                     <label htmlFor="email">Email:</label>
                     <input
                         type="email"
@@ -45,6 +54,8 @@ export default function LoginForm(props) {
                         onChange={handleChange}
                         required
                     />
+                    </div> 
+                    <div className="input_box">
                     <label htmlFor="password">Password:</label>
                     <input
                         type="password"
@@ -53,11 +64,13 @@ export default function LoginForm(props) {
                         onChange={handleChange}
                         required
                     />
+                    </div>
 
                     <button type="submit">Login</button>
                 </form>
                 <p className="error-message">{errorState}</p>
             </div>
-        </>
+            <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+        </section>
     )
 }

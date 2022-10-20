@@ -1,15 +1,12 @@
-import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getEvents } from '../utilities/users-service'
-import Button from 'react-bootstrap/Button';
+// npm import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 export default function Home(props) {
 
     const [events, setEvents] = useState([])
-
-
-
 
     useEffect(() => {
         const get = async () => {
@@ -23,7 +20,9 @@ export default function Home(props) {
 
     return (
         <div>
-            <h1>Home</h1>
+            <div className="header">
+            <h1>Shirlington Dog Park Events</h1>
+            </div>
             <div className="eventscontainer">
             {events.map(event => (
                 <Card style={{ width: '18rem' }}>

@@ -14,7 +14,7 @@ async function seed() {
         // });
 
         await Event.create({
-            title: 'Meet and Greet',
+            title: 'November Meet and Greet',
             description: 'Meet your local friendly dogs',
             date: "November 22nd 2022",
             img: "SDPFrGate.jpg"
@@ -23,9 +23,8 @@ async function seed() {
         await Event.create({
             title: 'Weekend Fall Clean-up and Fundraiser',
             description: 'JOIN US! Light grounds clean up and maintenance, pickup litter and other needed tasks. Equipment will be provided. Please bring work gloves. 100% of your tax deductible＄donation goes toward the purchase of bags and maintenance supplies to care for this ✶special✶ park.',
-
             date: "Saturday & Sunday, November 19-20, 2022 @10a-4p",
-            img: "Barkleyfriends.jpg",
+            img: "Barkleyfriends.jpg"
         })
 
         await Event.create({
@@ -57,7 +56,7 @@ async function seed() {
         })
 
         await Event.create({
-            title: 'Meet and Greet',
+            title: 'December Meet and Greet',
             description: 'Meet your local friendly dogs',
             date: 'Sunday, December 11 2022',
             img: "ShallotRottie.jpg"

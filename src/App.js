@@ -1,12 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import Auth from './pages/Auth';
+// import Auth from './pages/Auth';
 import Home from './pages/Home';
 import Chat from './pages/Chat';
-import NewOrder from './pages/NewOrder';
-import OrderHistory from './pages/OrderHistory';
 import NavBar from './components/NavBar';
-import Test from './pages/Test'
+
 import { Routes, Route } from 'react-router-dom'
 import { getUser } from './utilities/users-service';
 import io from 'socket.io-client';

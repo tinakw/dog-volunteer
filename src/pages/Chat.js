@@ -1,6 +1,10 @@
-import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
+// import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
+import NavBar from '../components/NavBar';
+import Header from '../components/Header';
+// import EventList from './EventsList';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { getEvents } from '../utilities/users-service'
 export default function Chat(props) {
     const params = useParams();
@@ -38,8 +42,13 @@ export default function Chat(props) {
     }, [])
 
     return (
-        <div>
-            <h1>Chat Page</h1>
+        <div className='chatPage'>
+           
+            <Header />
+
+            <h1>Messages</h1>
+           
+            
             {chatMessages.map(message => (
                 <div>
                     <p>{message.body}</p>
