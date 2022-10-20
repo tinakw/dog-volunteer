@@ -47,10 +47,7 @@ const port = process.env.PORT || 3001
 app.use(logger('dev')); // this just logs the request to the console (using a package called morgan)
 app.use(express.json()); // this turns the body of the request into JSON so that we can actually do stuff with it
 
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico'))); // this uses the favicon package to make sure the react site is showing the right favicon
-app.use(express.static(path.join(__dirname, 'build'))); // this points the react app to the server's "build" folder so it knows where to get the frontend code from.
 
-// ----------
 // END OF MIDDLEWARE
 // ----------
 
@@ -71,9 +68,7 @@ app.use('/api/events', require('./routes/api/events'));
 
 // ----------
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'))
-});
+
 
 // This is your *default* route. If the route being received does not match any other route that exists on the server, it sends it back information about the frontend React App and renders it to the page. This is why it is put at the very end, because if it does not match anything else, it knows to do this.
 

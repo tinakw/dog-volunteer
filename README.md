@@ -50,8 +50,8 @@ Left Todo
 [x] Style the login page
 [x] Create cards for each event in the home page
 [x] Navigation bar can have links back to Home, Also show the user's name, and a logout button
-[] Come up with a design for the chat page
-[] Show who sent the message and what time they sent the message
+[x] Come up with a design for the chat page
+[x] Show who sent the message and what time they sent the message
 [] Make sure that the chat log or chat history doesn't get too long (make it scrollable)
 [] Deploy
 [x] Come up with some mock events (title, description, date, image)
