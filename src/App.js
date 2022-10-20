@@ -36,10 +36,10 @@ function App() {
       {
         user ?
           <>
-            <NavBar user={user} />
+            <NavBar user={user} setUser={setUser} />
             <Routes>
               <Route path="/" element={<Home socket={socket} />} />
-              <Route path="/chat/:eventId" element={<Chat socket={socket} />} />
+              <Route path="/chat/:eventId" element={<Chat socket={socket} user={user} />} />
 
             </Routes>
           </>

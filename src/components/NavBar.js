@@ -1,17 +1,31 @@
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import "./NavBar.css";
 
 export default function NavBar(props) {
+  const navigate = useNavigate();
   return (
     <nav>
-      <h3>{props?.user?.name}</h3>
-      <div className='navcontainer'>
-        <Link to="/">Home</Link>
-        <button onClick={() => {
-          localStorage.removeItem('token');
-          props.setUser(null);
-        }}>Log Out</button>
-      </div>
+      <ul>
+        <li>
+          <img src="/ShirlDogsLogoMagP2.jpg" />
+        </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <div>
+          <li>
+            {props?.user?.first_name} {props?.user?.last_name}
+          </li>
+          <li>
+            <button onClick={() => {
+              localStorage.removeItem('token');
+              props.setUser(null);
+              
+            }}>Log Out</button>
+          </li>
+        </div>
+      </ul>
+
     </nav>
   )
 }

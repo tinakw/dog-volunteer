@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getEvents } from '../utilities/users-service'
 // npm import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Chat from './Chat';
+import './Home.css'
 export default function Home(props) {
 
     const [events, setEvents] = useState([])
@@ -19,20 +21,24 @@ export default function Home(props) {
     }, [])
 
     return (
-        <div>
+        <div className="home_container">
             <div className="header">
             <h1>Shirlington Dog Park Events</h1>
             </div>
             <div className="eventscontainer">
             {events.map(event => (
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '20rem' }}>
                 <Card.Img variant="top" src={event.img} />
                 <Card.Body>
                     <Card.Title>{event.title}</Card.Title>
                     <Card.Text>
-                    {event.description}
+                        {event.date}
                     </Card.Text>
+                    {/* <Card.Text>
+                    {event.description}
+                    </Card.Text> */}
                     <Link to={"/chat/" + event._id}>Chat</Link>
+                    
                 </Card.Body>
             </Card>
                 // <div>

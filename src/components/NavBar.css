@@ -1,0 +1,50 @@
+nav {
+    height: 100px;
+    background-color: #35A7AB;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    margin: 0;
+    padding: 0 50px;
+    width: 100%;
+    list-style: none;
+    font-size: 24px;
+    color: white;
+}
+
+nav ul img {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px;
+    border-radius: 50%;
+}
+
+nav ul a {
+    color: white;
+}
+
+nav ul div {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+nav ul div li{
+    margin-right: 20px;
+}
+
+nav ul div button{
+    
+    border: 2px solid white;
+    background: #35A7AB;
+    color: white;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 4px;
+    display: block;
+}
+

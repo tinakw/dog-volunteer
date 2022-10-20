@@ -39,7 +39,7 @@ export default function LoginForm(props) {
         <section className="signUpFormContainer">
             <div className="form-container">
                 <div className="form-header">
-                    <img src="ShirlDogsLogoMagP2.jpg" />
+                    <img src="/ShirlDogsLogoMagP2.jpg" />
                     <h2>Shirlington Dogs II</h2>
                 </div>
                 <form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>

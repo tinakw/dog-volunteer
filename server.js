@@ -14,6 +14,7 @@ require('./config/database');
 const seed = require('./seed');
 const jwt = require('jsonwebtoken')
 const Message = require('./models/Message');
+const Event = require('./models/Event');
 const mongoose = require('mongoose');
 
 const io = require("socket.io")(server, {
@@ -81,10 +82,10 @@ io.on('connection', (socket) => {
 
   // Once a user emites a message, the server has to receive the message
   socket.on('message', async (message) => {
- 
+
     const token = message.token;
-    jwt.verify(token, process.env.JWT_SECRET, async function(err, decoded) {
-      
+    jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+
 
       // Store that message in the database
       const newMessage = await Message.create({
@@ -92,22 +93,58 @@ io.on('connection', (socket) => {
         body: message.body,
         event: mongoose.Types.ObjectId(message.eventId)
       })
+      await newMessage.populate('user');
+      console.log('new message sent', newMessage)
       // Server will send that message ONLY to everyone in that event chat
       io.to(message.eventId).emit('new message', newMessage);
 
 
 
     });
-   
+
   })
 
-  socket.on('join event chat', async ({eventId}) => {
+  socket.on('join event chat', async ({ eventId, token }) => {
+    // Description of that event
+    const event = await Event.findOne({ _id: mongoose.Types.ObjectId(eventId) });
+    console.log('event found:', event);
+
+
+
     // Grab every message in that chat
-    const messages = await Message.find({event: mongoose.Types.ObjectId(eventId)}).populate({ path: 'user', select: 'first_name last_name' });
-    console.log('all messages for this event: ', eventId, messages)
+    const messages = await Message.find({ event: mongoose.Types.ObjectId(eventId) }).populate({ path: 'user', select: 'first_name last_name' });
+    // Grab ever user in that chat
+    console.log('messages', messages);
+    const users = {};
+    for (let i = 0; i < messages.length; i++) {
+      const userId = messages[i].user._id;
+      // If that user is not already listed in the list of users, add them
+      if (!users[userId]) {
+        users[userId] = {
+          _id: userId,
+          first_name: messages[i].user.first_name,
+          last_name: messages[i].user.last_name
+        }
+      }
+    }
+
+   
+    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+    if (!users[decoded.user._id]) {
+      users[decoded.user._id] = {
+        _id: decoded.user._id,
+        first_name: decoded.user.first_name,
+        last_name: decoded.user.last_name
+      }
+    }
+
+    const userList = Object.values(users);
+    console.log('list of unique users', users);
+
+    // console.log('all messages for this event: ', eventId, messages)
     socket.join(eventId)
-    console.log('event that the user wants to join',eventId )
-    io.to(eventId).emit('send messages', messages);
+    // console.log('event that the user wants to join',eventId )
+    io.to(eventId).emit('send event info', { event, messages, users: userList });
 
   })
 })
