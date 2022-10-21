@@ -10,7 +10,7 @@ The homepage is a wall of events; each event lists its title, date/time, and a h
 <img width="1351" alt="Screen Shot 2022-10-20 at 9 31 01 PM" src="https://user-images.githubusercontent.com/110048198/197097460-4da31fa9-6f7a-4b53-8aea-a85ea47eaad8.png">
 
 
-Each chat page hosts one event and displays event details, the list of users and a messaging panel. Multiple users can be loggedin simultaneously and posting conversations in real time through websockets.
+Each chat page hosts one event and displays event details, the list of users and a messaging panel. Multiple users can be loggedin simultaneously and post conversations in real time through websockets.
 
 
 <img width="1348" alt="Screen Shot 2022-10-20 at 10 36 21 PM" src="https://user-images.githubusercontent.com/110048198/197098201-f88be3a6-9d50-45d9-ae49-8745d57e2829.png">
