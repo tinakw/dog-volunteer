@@ -1,57 +1,31 @@
-User vists our app
+The Dog Volunteer app is a MERN stack application that provides a private platform for multiple users to coordinate communication and planning around specific events instantly and simultaneously. Communication is currently global and messages are date/time stamped. User and event data and message history is stored in MongoDB.
 
-They are prompted to login or signup 
+Users are prompted to signup or login to create their profile using their first and last names, an email address and a password. 
 
-Once they are logged in or register, what do they see?
+The homepage is a wall of events; each event lists its title, date/time, and a hyper-linked text to "chat". 
 
-A user sees a list of events on their homepage
+Each chat page hosts one event and displays event details, the list of users and a messaging panel. Multiple users can be loggedin simultaneously and posting conversations in real time through websockets.
 
-A user clicks on one of these events and is shown a messaging page for that particular event 
+The app is hosted on Heroku for (Express) and Netlify for (React) and incorporates the technologies of the MERN-stack:
 
-We want to establish a web socket connection with the server JUST for this particular event chat
+MongoDB/Mongoose
+Express
+React
+Node
 
-User1 sends a message to Event Id 1
-Server takes that message, stores it in our database, 
-Server needs to send that message to everyone in that chat
+Additional technologies used: 
 
+Socket.io .............axios
+json webtoken..........bcrypt
+bootstrap..............morgan
 
+The main/central Mongoose model: ObjectId converts objects into 12-byte ObjectId
+Your "favorite" Express controller method - Router to events
+Your "favorite" React component "Callback Props" for User Forms (ie.handlesubmit)
+The client-side routing - frontend/browser/UI handled in components folder
+Share the experience by answering the following:
 
-Messaging page consists of message chat and maybe list of users and RSVP button
-
-
-Use websockets to create a real time connection in order to be able to send and receive messages instantaenously 
-
-A user enters one of the event chat rooms 
-A user types and sends a message to the group chat
-
-Every user in that chat will see that message instantly through the use of this real connection
-
-
-USer1 and User2 in a group chat
+My biggest challenge is deployment because you think you're finished but it seems that each platform has its own issues.<img width="1351" alt="Screen Shot 2022-10-20 at 9 31 01 PM" src="https://user-images.githubusercontent.com/110048198/197097460-4da31fa9-6f7a-4b53-8aea-a85ea47eaad8.png">
 
 
-User1 has a web socket connection with server
-User2 also has a web socket connection with server
-
-
-User1 sends a message to the server
-
-Server has to first store that message in the database
-Server sends that message to everyone who is connected to it
-
-Server sends that message to User2
-
-USer2 sees that message in their chat
-
-
-
-Left Todo
-[x] Style the signup page
-[x] Style the login page
-[x] Create cards for each event in the home page
-[x] Navigation bar can have links back to Home, Also show the user's name, and a logout button
-[x] Come up with a design for the chat page
-[x] Show who sent the message and what time they sent the message
-[] Make sure that the chat log or chat history doesn't get too long (make it scrollable)
-[] Deploy
-[x] Come up with some mock events (title, description, date, image)
+Key takeaways: Organize your workstation and remove unnecessary files. Work side-by-side with JS and CSS files
