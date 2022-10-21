@@ -31,13 +31,15 @@ bootstrap..............morgan
 
 The main/central Mongoose model used: ObjectId, this model converts objects into 12-byte ObjectId.
 My "favorite" Express controller method - Router to events.
-My "favorite" React component are "Callback Props" used for User-Forms (ie.handlesubmit).
+My "favorite" React component is "Callback Props" used for User-Forms (ie.handlesubmit).
 For client-side routing - frontend/browser/UI were handled in components folder.
 
 
-My biggest challenge is deployment because you think you're finished but it seems that each platform has its own issues.
+My biggest challenge is deployment because just when you think you're finished, you're not. It seems that each platform has its own issues that require trouble-shooting.
 
-Key takeaways: Organize your workstation and remove unnecessary files. Work side-by-side with JS and CSS files
+Key takeaways: Organize your workstation and remove unnecessary files. Work side-by-side with JS and CSS files.
+
+Enjoy! Happy Coding!
 
 
 
