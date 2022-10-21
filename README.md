@@ -1,4 +1,4 @@
-The Dog Volunteer app is a MERN stack application that provides a private platform for multiple users to coordinate communication and planning around specific events instantly and simultaneously. Communication is currently global and messages are date/time stamped. User and event data and message history are stored in MongoDB.
+The Dog Volunteer app is a MERN stack application that provides a private platform for multiple users to coordinate communication and planning around specific events instantly and simultaneously. Communication is global and messages are date/time stamped. User and event data and message history are stored in MongoDB.
 
 Users are prompted to signup or login to create their profile using their first and last names, an email address and a password. 
 
@@ -34,10 +34,11 @@ My "favorite" Express controller method - Router to events.
 My "favorite" React component is "Callback Props" used for User-Forms (ie.handlesubmit).
 For client-side routing - frontend/browser/UI were handled in components folder.
 
-
 My biggest challenge is deployment because just when you think you're finished, you're not. It seems that each platform has its own issues that require trouble-shooting.
 
 Key takeaways: Organize your workstation and remove unnecessary files. Work side-by-side with JS and CSS files.
+
+While communication is global, a private chat feature could be added in the future. 
 
 Enjoy! Happy Coding!
 
