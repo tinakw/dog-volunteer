@@ -24,6 +24,8 @@ const io = require("socket.io")(server, {
   }
 });
 
+app.use(cors());
+
 
 // seed();
 
