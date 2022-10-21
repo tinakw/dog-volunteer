@@ -1,4 +1,4 @@
-The Dog Volunteer app is a MERN stack application that provides a private platform for multiple users to coordinate communication and planning around specific events instantly and simultaneously. Communication is currently global and messages are date/time stamped. User and event data and message history is stored in MongoDB.
+The Dog Volunteer app is a MERN stack application that provides a private platform for multiple users to coordinate communication and planning around specific events instantly and simultaneously. Communication is currently global and messages are date/time stamped. User and event data and message history are stored in MongoDB.
 
 Users are prompted to signup or login to create their profile using their first and last names, an email address and a password. 
 
