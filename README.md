@@ -16,7 +16,7 @@ Each chat page hosts one event and displays event details, the list of users and
 <img width="1348" alt="Screen Shot 2022-10-20 at 10 36 21 PM" src="https://user-images.githubusercontent.com/110048198/197098201-f88be3a6-9d50-45d9-ae49-8745d57e2829.png">
 
 
-The app is hosted on Heroku for (Express) https://dog-volunteer.herokuapp.com and Netlify for (React) and incorporates the technologies of the MERN-stack:
+The app is hosted on Heroku for (Express) https://dog-volunteer.herokuapp.com and Netlify for (React) https://harmonious-biscochitos-b429e7.netlify.app/ and incorporates the technologies of the MERN-stack:
 
 MongoDB/Mongoose;
 Express;
