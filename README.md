@@ -38,7 +38,7 @@ My biggest challenge is deployment because just when you think you're finished, 
 
 Key takeaways: Organize your workstation and remove unnecessary files. Work side-by-side with JS and CSS files.
 
-While communication is global, a private chat feature could be added in the future. 
+While user communication is global now, a private chat feature may be added in the future. 
 
 Enjoy! Happy Coding!
 
