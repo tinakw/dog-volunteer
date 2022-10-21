@@ -25,7 +25,9 @@ Your "favorite" React component "Callback Props" for User Forms (ie.handlesubmit
 The client-side routing - frontend/browser/UI handled in components folder
 Share the experience by answering the following:
 
-My biggest challenge is deployment because you think you're finished but it seems that each platform has its own issues.<img width="1351" alt="Screen Shot 2022-10-20 at 9 31 01 PM" src="https://user-images.githubusercontent.com/110048198/197097460-4da31fa9-6f7a-4b53-8aea-a85ea47eaad8.png">
-
+My biggest challenge is deployment because you think you're finished but it seems that each platform has its own issues.
 
 Key takeaways: Organize your workstation and remove unnecessary files. Work side-by-side with JS and CSS files
+
+<img width="1351" alt="Screen Shot 2022-10-20 at 9 31 01 PM" src="https://user-images.githubusercontent.com/110048198/197097460-4da31fa9-6f7a-4b53-8aea-a85ea47eaad8.png">
+
