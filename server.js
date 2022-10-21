@@ -19,7 +19,7 @@ const mongoose = require('mongoose');
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://harmonious-biscochitos-b429e7.netlify.app",
+    origin: "*",
     methods: ["GET", "POST"]
   }
 });
