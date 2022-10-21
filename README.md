@@ -1,4 +1,3 @@
-
 The Dog Volunteer app is a MERN stack application that provides a private platform for multiple users to coordinate communication and planning around specific events instantly and simultaneously. Communication is currently global and messages are date/time stamped. User and event data and message history is stored in MongoDB.
 
 Users are prompted to signup or login to create their profile using their first and last names, an email address and a password. 
@@ -12,6 +11,10 @@ The homepage is a wall of events; each event lists its title, date/time, and a h
 
 
 Each chat page hosts one event and displays event details, the list of users and a messaging panel. Multiple users can be loggedin simultaneously and posting conversations in real time through websockets.
+
+
+<img width="1348" alt="Screen Shot 2022-10-20 at 10 36 21 PM" src="https://user-images.githubusercontent.com/110048198/197098201-f88be3a6-9d50-45d9-ae49-8745d57e2829.png">
+
 
 The app is hosted on Heroku for (Express) and Netlify for (React) and incorporates the technologies of the MERN-stack:
 
