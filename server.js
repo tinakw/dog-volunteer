@@ -16,7 +16,7 @@ const jwt = require('jsonwebtoken')
 const Message = require('./models/Message');
 const Event = require('./models/Event');
 const mongoose = require('mongoose');
-
+const cors = require('cors');
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
