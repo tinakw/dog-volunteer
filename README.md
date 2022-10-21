@@ -18,15 +18,15 @@ Each chat page hosts one event and displays event details, the list of users and
 
 The app is hosted on Heroku for (Express) and Netlify for (React) and incorporates the technologies of the MERN-stack:
 
-MongoDB/Mongoose
-Express
-React
+MongoDB/Mongoose;
+Express;
+React;
 Node
 
 Additional technologies used: 
 
-Socket.io .............axios
-json webtoken..........bcrypt
+Socket.io .............axios..........
+json webtoken..........bcrypt.........
 bootstrap..............morgan
 
 The main/central Mongoose model: ObjectId converts objects into 12-byte ObjectId
